@@ -1,0 +1,60 @@
+cd <your_dir>
+npm init
+fill the required fields, it will generate package.json
+npm install express mongoose express-unless bcryptjs dotenv jsonwebtoken — save
+[NOTE]:
+All npm install package will be added in package.json
+npm list express (for checking express version)
+
+CREATING AND CONNECTING TO SERVER: 
+- npm install --save dotenv
+- src\index.server.js
+- .env
+- node src/index.server.js in package.json
+- npm install --save-dev nodemon 
+  to activate nodemon: npm start (It will allow us to keep on running). Make sure this command already configured in package.json. Make sure database should be activated in mongodb.com
+
+CREATING DATABASE: 
+- download MongoDB at mongodb.com (
+  - need to register first if you dont have an account
+  - and then choose and create a free cluster
+  - in Database side menu wait until cluster is already created 
+  - in Network Access side menu, hit Add IP Adrress button > ALLOW ACCESS FROM ANY WHERE > Confirm
+  - in Database side menu > CONNECT > Create a Database User > fill Username and Password field > hit Create Database User button
+  - Choose a connection method > Connect your application > copy connection string )
+- implement the connection string in .env and index.server.js
+
+AUTH API'S:
+- npm install --save bcrypt
+- npm install --save jsonwebtoken
+- configure JWT_SECRET in .env file
+- npm i shortid
+- npm install --save body-parser
+
+POSTMAN TESTINGS:
+
+To make it easier, default username is sead, and password is password. 
+
+localhost:3000/users/register
+POST
+Body > raw > JSON
+{ 
+  "username": "username",
+  "password": "password",
+  "email": "seadclark@gmail.com"
+}
+
+localhost:3000/users/login
+POST
+Body > raw > JSON
+{ 
+  "username": "username",
+  "password": "password"
+}
+
+http://localhost:3000/users/:id
+GET
+Body > raw > JSON
+Authorization > Type > Bearer Token
+
+Port 3000 refer to server.js
